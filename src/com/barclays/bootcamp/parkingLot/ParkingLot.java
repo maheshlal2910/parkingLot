@@ -5,22 +5,27 @@ import java.util.List;
 public class ParkingLot {
 
     private int numberOfSlots;
-    private List parkingSlots;
+    private List<String> parkingSlots;
+    private ParkingLotOwner parkingLotOwner;
 
-    public ParkingLot(int numberOfSlots, List slots) {
+    public ParkingLot(int numberOfSlots, List<String> slots, ParkingLotOwner parkingLotOwner) {
         this.numberOfSlots = numberOfSlots;
         this.parkingSlots = slots;
+        this.parkingLotOwner = parkingLotOwner;
     }
 
     public boolean park(String carNumber) {
-
-        if (parkingSlots.size() >= numberOfSlots || parkingSlots.contains(carNumber))
+        if (parkingSlots.size() >= numberOfSlots) {
+            parkingLotOwner.putUpParkingFullSign();
+            return false;
+        }
+        else if (parkingSlots.contains(carNumber))
             return false;
         parkingSlots.add(carNumber);
         return true;
     }
 
-    public boolean unpark(String carNumber) {
+    public boolean driveOut(String carNumber) {
         if(!parkingSlots.contains(carNumber))
             return false;
         parkingSlots.remove(carNumber);

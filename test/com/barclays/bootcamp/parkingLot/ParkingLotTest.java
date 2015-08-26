@@ -45,4 +45,14 @@ public class ParkingLotTest {
         assertTrue(parkingLot.unpark("MH 12 KJ 9134"));
     }
 
+    @Test
+    public void shouldNotUnParkCarIfTheCarIsNotInParkingLot() {
+        ArrayList<String> emptySlots = new ArrayList<String>();
+        ParkingLot parkingLot = new ParkingLot(1, emptySlots);
+
+        parkingLot.park("MH 12 KJ 9134");
+        assertFalse(parkingLot.unpark("MH 31 AQ 3756"));
+    }
+
+
 }

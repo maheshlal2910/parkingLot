@@ -21,6 +21,9 @@ public class ParkingLot {
     }
 
     public boolean unpark(String carNumber) {
+        if(!emptySlots.contains(carNumber))
+            return false;
+        emptySlots.remove(carNumber);
         return true;
     }
 

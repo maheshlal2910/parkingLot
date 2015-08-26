@@ -11,6 +11,8 @@ public class ParkingLot {
     }
 
     public boolean park(String carNumber) {
+        if(emptySlots.contains(carNumber))
+            return false;
         emptySlots.add(carNumber);
         return true;
     }

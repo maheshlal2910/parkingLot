@@ -19,4 +19,9 @@ public class ParkingLot {
         emptySlots.add(carNumber);
         return true;
     }
+
+    public boolean unpark(String carNumber) {
+        return true;
+    }
+
 }

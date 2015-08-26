@@ -4,14 +4,17 @@ import java.util.List;
 
 public class ParkingLot {
 
+    private int numberOfSlots;
     private List emptySlots;
 
-    public ParkingLot(List slots) {
+    public ParkingLot(int numberOfSlots, List slots) {
+        this.numberOfSlots = numberOfSlots;
         this.emptySlots = slots;
     }
 
     public boolean park(String carNumber) {
-        if(emptySlots.contains(carNumber))
+
+        if (emptySlots.size() >= numberOfSlots || emptySlots.contains(carNumber))
             return false;
         emptySlots.add(carNumber);
         return true;

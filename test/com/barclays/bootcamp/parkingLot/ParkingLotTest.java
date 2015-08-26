@@ -13,7 +13,7 @@ public class ParkingLotTest {
     @Test
     public void shouldParkACarInAParkingLog() {
         ArrayList<String> emptySlots = new ArrayList<String>();
-        ParkingLot parkingLot = new ParkingLot(emptySlots);
+        ParkingLot parkingLot = new ParkingLot(2, emptySlots);
 
         assertTrue(parkingLot.park("MH 12 KJ 9134"));
     }
@@ -21,10 +21,19 @@ public class ParkingLotTest {
     @Test
     public void shouldNotParkCarIfAlreadyParked() {
         ArrayList<String> emptySlots = new ArrayList<String>();
-        ParkingLot parkingLot = new ParkingLot(emptySlots);
+        ParkingLot parkingLot = new ParkingLot(2, emptySlots);
 
         parkingLot.park("MH 12 KJ 9134");
         assertFalse(parkingLot.park("MH 12 KJ 9134"));
+    }
+
+    @Test
+    public void sholdNotParkCarIfParkingLotIsFull(){
+        ArrayList<String> emptySlots = new ArrayList<String>();
+        ParkingLot parkingLot = new ParkingLot(1, emptySlots);
+
+        parkingLot.park("MH 12 KJ 9134");
+        assertFalse(parkingLot.park("MH 31 AQ 3756"));
     }
 
 }

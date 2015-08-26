@@ -28,7 +28,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void sholdNotParkCarIfParkingLotIsFull(){
+    public void shouldNotParkCarIfParkingLotIsFull(){
         ArrayList<String> emptySlots = new ArrayList<String>();
         ParkingLot parkingLot = new ParkingLot(1, emptySlots);
 

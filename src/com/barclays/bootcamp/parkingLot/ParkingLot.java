@@ -5,25 +5,25 @@ import java.util.List;
 public class ParkingLot {
 
     private int numberOfSlots;
-    private List emptySlots;
+    private List parkingSlots;
 
     public ParkingLot(int numberOfSlots, List slots) {
         this.numberOfSlots = numberOfSlots;
-        this.emptySlots = slots;
+        this.parkingSlots = slots;
     }
 
     public boolean park(String carNumber) {
 
-        if (emptySlots.size() >= numberOfSlots || emptySlots.contains(carNumber))
+        if (parkingSlots.size() >= numberOfSlots || parkingSlots.contains(carNumber))
             return false;
-        emptySlots.add(carNumber);
+        parkingSlots.add(carNumber);
         return true;
     }
 
     public boolean unpark(String carNumber) {
-        if(!emptySlots.contains(carNumber))
+        if(!parkingSlots.contains(carNumber))
             return false;
-        emptySlots.remove(carNumber);
+        parkingSlots.remove(carNumber);
         return true;
     }
 

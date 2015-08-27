@@ -15,6 +15,7 @@ public class ParkingFull implements IAmAParkingLotEvent{
 
     @Override
     public void notifySubscribersIfThresholdBreached(int parkingPercentageFull) {
-        subscribers.forEach(com.thoughtworks.objectBootcamp.parkingLot.event.IAmASubscriber::performAction);
+        if (parkingPercentageFull <= threshold)
+            subscribers.forEach(com.thoughtworks.objectBootcamp.parkingLot.event.IAmASubscriber::performAction);
     }
 }

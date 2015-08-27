@@ -15,21 +15,27 @@ public class ParkingLot {
     }
 
     public boolean park(String carNumber) {
-        if (parkingSlots.size() >= numberOfSlots) {
-            parkingLotOwner.putUpParkingFullSign();
-            return false;
-        }
-        else if (parkingSlots.contains(carNumber))
+        if (parkingLotIsFull() || carIsAlreadyParked(carNumber))
             return false;
         parkingSlots.add(carNumber);
+        if (parkingLotIsFull())
+            parkingLotOwner.putUpParkingFullSign();
         return true;
     }
 
     public boolean driveOut(String carNumber) {
-        if(!parkingSlots.contains(carNumber))
+        if(!carIsAlreadyParked(carNumber))
             return false;
         parkingSlots.remove(carNumber);
         return true;
+    }
+
+    private boolean carIsAlreadyParked(String carNumber) {
+        return parkingSlots.contains(carNumber);
+    }
+
+    private boolean parkingLotIsFull() {
+        return parkingSlots.size() >= numberOfSlots;
     }
 
 }

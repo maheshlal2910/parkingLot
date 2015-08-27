@@ -15,7 +15,7 @@ public class ParkingFull implements IAmAParkingLotEvent{
     }
 
     @Override
-    public void notifySubscribersIfThresholdBreached(int parkingPercentageFull) {
+    public void notifySubscribersIfThresholdBreachedFor(double parkingPercentageFull) {
         if (parkingPercentageFull <= threshold)
             subscribers.forEach(IAmASubscriber::performAction);
     }

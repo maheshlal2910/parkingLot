@@ -18,7 +18,7 @@ public class ParkingFullTest {
         subscribers.add(secondMockSubscriber);
         ParkingFull parkingFull = new ParkingFull(subscribers, 100);
 
-        parkingFull.notifySubscribersIfThresholdBreached(100);
+        parkingFull.notifySubscribersIfThresholdBreachedFor(100);
 
         verify(firstMockSubscriber).performAction();
         verify(secondMockSubscriber).performAction();
@@ -33,7 +33,7 @@ public class ParkingFullTest {
         subscribers.add(secondMockSubscriber);
         ParkingFull parkingFull = new ParkingFull(subscribers, 100);
 
-        parkingFull.notifySubscribersIfThresholdBreached(200);
+        parkingFull.notifySubscribersIfThresholdBreachedFor(200);
 
         verifyZeroInteractions(firstMockSubscriber);
         verifyZeroInteractions(secondMockSubscriber);

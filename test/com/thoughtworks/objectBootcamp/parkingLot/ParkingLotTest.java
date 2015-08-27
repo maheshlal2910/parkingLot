@@ -1,4 +1,4 @@
-package com.barclays.bootcamp.parkingLot;
+package com.thoughtworks.objectBootcamp.parkingLot;
 
 
 import org.junit.Test;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class ParkingFullTest {
+public class PercentageOfParkingFullEventTest {
 
     @Test
     public void shouldNotifySubscribersIfThethresholdIsBreached(){
@@ -16,9 +16,9 @@ public class ParkingFullTest {
         ArrayList<IAmASubscriber> subscribers = new ArrayList<>();
         subscribers.add(firstMockSubscriber);
         subscribers.add(secondMockSubscriber);
-        ParkingFull parkingFull = new ParkingFull(subscribers, 100);
+        PercentageOfParkingFullEvent percentageOfParkingFullEvent = new PercentageOfParkingFullEvent(subscribers, 100);
 
-        parkingFull.notifySubscribersIfThresholdBreachedFor(100);
+        percentageOfParkingFullEvent.notifySubscribersIfThresholdBreachedFor(100);
 
         verify(firstMockSubscriber).performAction();
         verify(secondMockSubscriber).performAction();
@@ -31,9 +31,9 @@ public class ParkingFullTest {
         ArrayList<IAmASubscriber> subscribers = new ArrayList<>();
         subscribers.add(firstMockSubscriber);
         subscribers.add(secondMockSubscriber);
-        ParkingFull parkingFull = new ParkingFull(subscribers, 100);
+        PercentageOfParkingFullEvent percentageOfParkingFullEvent = new PercentageOfParkingFullEvent(subscribers, 100);
 
-        parkingFull.notifySubscribersIfThresholdBreachedFor(200);
+        percentageOfParkingFullEvent.notifySubscribersIfThresholdBreachedFor(200);
 
         verifyZeroInteractions(firstMockSubscriber);
         verifyZeroInteractions(secondMockSubscriber);

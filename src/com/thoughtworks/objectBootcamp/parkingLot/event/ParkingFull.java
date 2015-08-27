@@ -1,5 +1,7 @@
 package com.thoughtworks.objectBootcamp.parkingLot.event;
 
+import com.thoughtworks.objectBootcamp.parkingLot.people.IAmASubscriber;
+
 import java.util.List;
 
 public class ParkingFull implements IAmAParkingLotEvent{
@@ -12,10 +14,9 @@ public class ParkingFull implements IAmAParkingLotEvent{
         this.threshold = threshold;
     }
 
-
     @Override
     public void notifySubscribersIfThresholdBreached(int parkingPercentageFull) {
         if (parkingPercentageFull <= threshold)
-            subscribers.forEach(com.thoughtworks.objectBootcamp.parkingLot.event.IAmASubscriber::performAction);
+            subscribers.forEach(IAmASubscriber::performAction);
     }
 }

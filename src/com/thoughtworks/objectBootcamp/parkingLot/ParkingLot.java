@@ -1,5 +1,7 @@
 package com.thoughtworks.objectBootcamp.parkingLot;
 
+import com.thoughtworks.objectBootcamp.parkingLot.people.ParkingLotOwner;
+
 import java.util.List;
 
 public class ParkingLot {
@@ -19,7 +21,7 @@ public class ParkingLot {
             return false;
         parkingSlots.add(carNumber);
         if (parkingLotIsFull())
-            parkingLotOwner.putUpParkingFullSign();
+            parkingLotOwner.performAction();
         return true;
     }
 

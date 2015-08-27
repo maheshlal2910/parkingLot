@@ -1,5 +1,6 @@
 package com.thoughtworks.objectBootcamp.parkingLot.event;
 
+import com.thoughtworks.objectBootcamp.parkingLot.people.IAmASubscriber;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
 package com.thoughtworks.objectBootcamp.parkingLot;
 
 
+import com.thoughtworks.objectBootcamp.parkingLot.people.ParkingLotOwner;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(1, emptySlots, mockParkingLotOwner);
         parkingLot.park("MH 12 KJ 9134");
         parkingLot.park("MH 31 AQ 3756");
-        verify(mockParkingLotOwner).putUpParkingFullSign();
+        verify(mockParkingLotOwner).performAction();
     }
 
     @Test
@@ -59,6 +60,15 @@ public class ParkingLotTest {
 
     @Test
     public void shouldNotUnParkCarIfTheCarIsNotInParkingLot() {
+        ArrayList<String> emptySlots = new ArrayList<String>();
+        ParkingLot parkingLot = new ParkingLot(1, emptySlots, mockParkingLotOwner);
+
+        parkingLot.park("MH 12 KJ 9134");
+        assertFalse(parkingLot.driveOut("MH 31 AQ 3756"));
+    }
+
+    @Test
+    public void shouldNotifySecurityWhenTheParkingLotIs80PercentFull() {
         ArrayList<String> emptySlots = new ArrayList<String>();
         ParkingLot parkingLot = new ParkingLot(1, emptySlots, mockParkingLotOwner);
 

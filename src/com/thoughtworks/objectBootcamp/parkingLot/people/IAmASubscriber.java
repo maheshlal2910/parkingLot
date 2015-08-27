@@ -1,4 +1,4 @@
-package com.thoughtworks.objectBootcamp.parkingLot.event;
+package com.thoughtworks.objectBootcamp.parkingLot.people;
 
 public interface IAmASubscriber {
     public void performAction();
